@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.confluence" version="3.0.47" name="Confluence" provider-name="Jezz_X, Team Kodi">
+<addon id="skin.confluence.AEL" version="3.0.47" name="Confluence" provider-name="Jezz_X, Team Kodi">
 	<requires>
 		<import addon="xbmc.gui" version="5.12.0"/>
 	</requires>
@@ -17,10 +17,10 @@
 		<summary lang="da_DK">Confluence-tema af Jezz_X. (Kodis standardtema)</summary>
 		<summary lang="de_DE">Confluence Skin von Jezz_X. (Standard-Skin von Kodi)</summary>
 		<summary lang="el_GR">Το κέλυφος Confluence από τον Jezz_X (προεπιλεγμένο κέλυφος του Kodi).</summary>
-		<summary lang="en_AU">Confluence skin by Jezz_X. (Kodi's default skin)</summary>
-		<summary lang="en_GB">Confluence skin by Jezz_X.</summary>
-		<summary lang="en_NZ">Confluence skin by Jezz_X. (Kodi's default skin)</summary>
-		<summary lang="en_US">Confluence skin by Jezz_X. (Kodi's default skin)</summary>
+		<summary lang="en_AU">Confluence skin by Jezz_X.</summary>
+		<summary lang="en_GB">Confluence skin by Jezz_X. AEL/AML support.</summary>
+		<summary lang="en_NZ">Confluence skin by Jezz_X.</summary>
+		<summary lang="en_US">Confluence skin by Jezz_X.</summary>
 		<summary lang="es_AR">Skin Confluence por Jezz_X.</summary>
 		<summary lang="es_ES">Skin Confluence por Jezz_X.</summary>
 		<summary lang="es_MX">Skin confluende por Jezz_X. (skin por defecto de Kodi)</summary>
