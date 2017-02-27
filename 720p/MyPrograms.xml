@@ -3,7 +3,8 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<menucontrol>9000</menucontrol>
 	<onload condition="!Skin.HasSetting(FirstTimeRun)">ActivateWindow(1112)</onload>
-	<views>50,51,500,550,551,923</views>
+    <!-- 950 onwards are AEL/AML custom views -->
+	<views>50,51,500,550,551,950,951,952,953</views>
 	<controls>
 		<!-- Defined in IncludesBackgroundBuilding.xml -->
 		<include>CommonBackground</include>
@@ -22,9 +23,15 @@
 			<include>AddonInfoListView1</include>
 			<!-- view id = 551 -->
 			<include>AddonInfoThumbView1</include>
-			<!-- Defined in ViewsAEL.xml -->
-			<!-- view id = 923 -->
-			<include>AddonAELMatrix</include>
+
+			<!-- Defined in Views_AEL_Matrix.xml     / view id = 950 -->
+			<include>Addon_AEL_Matrix</include>
+			<!-- Defined in Views_AEL_List.xml      / view id = 951 -->
+			<include>Addon_AEL_List</include>
+			<!-- Defined in Views_AML_MAME_List.xml / view id = 952 -->
+			<include>Addon_AML_MAME_List</include>
+			<!-- Defined in Views_AML_SL_List.xml   / view id = 953 -->
+			<include>Addon_AML_SL_List</include>
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>

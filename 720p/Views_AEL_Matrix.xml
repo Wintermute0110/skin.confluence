@@ -5,15 +5,15 @@
 -->
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-    <include name="AddonAELMatrix">
+    <include name="Addon_AEL_Matrix">
         <control type="group">
-            <visible>Control.IsVisible(923)</visible>
+            <visible>Control.IsVisible(950)</visible>
             <include>VisibleFadeEffect</include>
 
             <!-- From IncludesBackgroundBuilding.xml -->
             <control type="group">
                 <include>VisibleFadeEffect</include>
-                <visible>Control.IsVisible(923)</visible>
+                <visible>Control.IsVisible(950)</visible>
 
                 <!-- Left panel background -->
                 <control type="image">
@@ -405,7 +405,7 @@
             </control>
 
             <!-- ID of this control seems to be ID of the view --------------------------------- -->
-            <control type="list" id="923">
+            <control type="list" id="950">
                 <left>20</left>
                 <top>460</top>
                 <width>640</width>
@@ -413,8 +413,8 @@
                 
                 <onleft>2</onleft>
                 <onright>60</onright>
-                <onup>923</onup>
-                <ondown>923</ondown>
+                <onup>950</onup>
+                <ondown>950</ondown>
 
                 <!-- label defines the view name on Kodi view selector -->
                 <viewtype label="AEL Matrix">info</viewtype>
@@ -450,7 +450,7 @@
                         <width>580</width>
                         <height>41</height>
                         <texture border="0,2,0,2">MenuItemNF.png</texture>
-                        <visible>!Control.HasFocus(923)</visible>
+                        <visible>!Control.HasFocus(950)</visible>
                         <include>VisibleFadeEffect</include>
                     </control>
                     <control type="image">
@@ -459,7 +459,7 @@
                         <width>580</width>
                         <height>41</height>
                         <texture border="0,2,0,2">MenuItemFO.png</texture>
-                        <visible>Control.HasFocus(923)</visible>
+                        <visible>Control.HasFocus(950)</visible>
                         <include>VisibleFadeEffect</include>
                     </control>
                     <control type="image">
@@ -468,7 +468,7 @@
                         <width>200</width>
                         <height>31</height>
                         <texture border="0,0,14,0">MediaItemDetailBG.png</texture>
-                        <visible>Control.HasFocus(923) + !String.IsEmpty(ListItem.Property(Addon.Status))</visible>
+                        <visible>Control.HasFocus(950) + !String.IsEmpty(ListItem.Property(Addon.Status))</visible>
                     </control>
                     <control type="label">
                         <left>10</left>
@@ -509,17 +509,17 @@
                 <texturesliderbarfocus border="10,14,10,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
                 <textureslidernib>ScrollBarNib.png</textureslidernib>
                 <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
-                <onleft>923</onleft>
+                <onleft>950</onleft>
                 <onright>2</onright>
                 <showonepage>false</showonepage>
                 <orientation>vertical</orientation>
-                <visible>Control.IsVisible(923)</visible>
+                <visible>Control.IsVisible(950)</visible>
             </control>
             
             <control type="group">
                 <left>650</left>
                 <top>440</top>
-                <visible>Control.IsVisible(923)</visible>
+                <visible>Control.IsVisible(950)</visible>
 
                 <!-- Plot -->
                 <control type="textbox">
