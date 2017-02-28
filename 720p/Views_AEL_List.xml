@@ -1,30 +1,32 @@
 <!--
-  AEL List
-  Includes: Boxfron, Boxback, Clearlogo, Title and Snap.
-  
+  ROM List
+  Includes: Boxfront, Boxback, Clearlogo, Cartridge, Title and Snap.
+
   Template used: Confluence Krypton ViewsAddonBrowser.xml, view AddonInfoListView1 (550)
 -->
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
     <include name="Addon_AEL_List">
         <control type="group">
+            <left>20</left>
+            <top>40</top>
             <visible>Control.IsVisible(951)</visible>
             <include>VisibleFadeEffect</include>
 
             <!-- ListItem. ID of this control seems to be ID of the view ---------------------- -->
             <!-- Panel background -->
             <control type="image">
-                <left>30</left>
-                <top>40</top>
+                <left>0</left>
+                <top>0</top>
                 <width>550</width>
-                <height>590</height>
+                <height>670</height>
                 <texture border="15">ContentPanel.png</texture>
             </control>
             <control type="list" id="951">
-                <left>40</left>
-                <top>50</top>
+                <left>10</left>
+                <top>10</top>
                 <width>540</width>
-                <height>570</height>
+                <height>670</height>
 
                 <onleft>2</onleft>
                 <onright>60</onright>
@@ -44,8 +46,22 @@
                         <height>41</height>
                         <texture border="0,2,0,2">MenuItemNF.png</texture>
                     </control>
+                    <!-- Year label -->
                     <control type="label">
                         <left>10</left>
+                        <top>0</top>
+                        <width>100</width>
+                        <height>40</height>
+                        <font>font13</font>
+                        <textcolor>grey2</textcolor>
+                        <selectedcolor>selected</selectedcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Year]</label>
+                    </control>
+                    <!-- Title label -->
+                    <control type="label">
+                        <left>60</left>
                         <top>0</top>
                         <width>540</width>
                         <height>40</height>
@@ -85,13 +101,28 @@
                         <texture border="0,0,14,0">MediaItemDetailBG.png</texture>
                         <visible>Control.HasFocus(951) + !String.IsEmpty(ListItem.Property(Addon.Status))</visible>
                     </control>
+                    
+                    <!-- Year label -->
                     <control type="label">
                         <left>10</left>
                         <top>0</top>
-                        <width>520</width>
+                        <width>100</width>
                         <height>40</height>
                         <font>font13</font>
-                        <textcolor>white</textcolor>
+                        <textcolor>grey2</textcolor>
+                        <selectedcolor>selected</selectedcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Year]</label>
+                    </control>
+                    <!-- Title label -->
+                    <control type="label">
+                        <left>60</left>
+                        <top>0</top>
+                        <width>540</width>
+                        <height>40</height>
+                        <font>font13</font>
+                        <textcolor>grey2</textcolor>
                         <selectedcolor>selected</selectedcolor>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -103,7 +134,7 @@
                 <left>550</left>
                 <top>50</top>
                 <width>25</width>
-                <height>570</height>
+                <height>670</height>
                 <texturesliderbackground border="10,14,10,14">ScrollBarV.png</texturesliderbackground>
                 <texturesliderbar border="10,14,10,14">ScrollBarV_bar.png</texturesliderbar>
                 <texturesliderbarfocus border="10,14,10,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
@@ -115,488 +146,472 @@
                 <orientation>vertical</orientation>
                 <visible>Control.IsVisible(951)</visible>
             </control>
+        </control>
 
-            <!-- Flags ------------------------------------------------------------------------ -->
-            <control type="group">
-                <left>30</left>
-                <top>630</top>
+        <!-- Flags ------------------------------------------------------------------------ -->
+        <control type="group">
+            <left>580</left>
+            <top>650</top>
 
-                <control type="image">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>550</width>
-                    <height>60</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-
-                <!-- Example in ViewsVideoLibrary.xml, search for "Media Codec Flagging Images" --->
-                <!-- <include>AudioCodecFlaggingConditions</include> defined in IncludesCodecFlagging.xml --->
-                <control type="group">
-                    <!-- <align>center</align> -->
-                    <!-- <itemgap>2</itemgap> -->
-                    <!-- <orientation>horizontal</orientation> -->
-
-                    <!-- In Favourite bool -->
-                    <control type="image">
-                        <description>In Favourite Bool</description>
-                        <left>0</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/InFav_True.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_InFav),InFav_True)</visible>
-                    </control>
-
-                    <!-- Multidisc bool -->
-                    <control type="image">
-                        <description>Multidisc Bool</description>
-                        <left>60</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Multidisc_True.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_MultiDisc),MultiDisc_True)</visible>
-                    </control>
-
-                    <!-- Favourite ROM status -->
-                    <control type="image">
-                        <description>Favourite ROM status OK</description>
-                        <left>120</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_OK.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_OK)</visible>
-                    </control>
-                    <control type="image">
-                        <description>Favourite ROM status Unlinked ROM</description>
-                        <left>120</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_UnlinkedROM.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_UnlinkedROM)</visible>
-                    </control>
-                    <control type="image">
-                        <description>Favourite ROM status Unlinked Launcher</description>
-                        <left>120</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_UnlinkedLauncher.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_UnlinkedLauncher)</visible>
-                    </control>
-                    <control type="image">
-                        <description>Favourite ROM status Broken</description>
-                        <left>120</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_Broken.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_Broken)</visible>
-                    </control>
-
-                    <!-- No-Intro status -->
-                    <control type="image">
-                        <description>NoIntro Status</description>
-                        <left>180</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Have.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Have)</visible>
-                    </control>
-                    <control type="image">
-                        <description>NoIntro Status</description>
-                        <left>180</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Miss.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Miss)</visible>
-                    </control>
-                    <control type="image">
-                        <description>NoIntro Status</description>
-                        <left>180</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Added.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Added)</visible>
-                    </control>
-                    <control type="image">
-                        <description>NoIntro Status</description>
-                        <left>180</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Unknown.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Unknown)</visible>
-                    </control>
-
-                    <!-- Parent/Clone status -->
-                    <control type="image">
-                        <description>Parent/Clone status</description>
-                        <left>240</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/PClone_Parent.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Parent)</visible>
-                    </control>
-                    <control type="image">
-                        <description>Parent/Clone status</description>
-                        <left>240</left>
-                        <top>15</top>
-                        <width>80</width>
-                        <height>35</height>
-                        <aspectratio align="right">keep</aspectratio>
-                        <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/PClone_Clone.png</texture>
-                        <visible>String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Clone)</visible>
-                    </control>
-                </control>
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>340</width>
+                <height>60</height>
+                <texture border="10">ContentPanel.png</texture>
             </control>
 
-            <!-- Metadata --------------------------------------------------------------------- -->
-            <control type="group">
-                <left>900</left>
-                <top>300</top>
-                <visible>Control.IsVisible(951)</visible>
-
-                <control type="image">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>350</width>
-                    <height>170</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-
-                <!-- Infolabels -->
-                <control type="label">
-                    <description>Year txt</description>
-                    <left>0</left>
-                    <top>10</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>Year:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="fadelabel">
-                    <description>Year Value</description>
-                    <left>105</left>
-                    <top>10</top>
-                    <width>350</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Year]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scrollout>false</scrollout>
-                    <pauseatend>1000</pauseatend>
-                </control>
-                
-                <control type="label">
-                    <description>Genre txt</description>
-                    <left>0</left>
-                    <top>30</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>Genre:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="label">
-                    <description>Genre Value</description>
-                    <left>105</left>
-                    <top>30</top>
-                    <width>350</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Genre]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scroll>true</scroll>
-                </control>
-
-                <control type="label">
-                    <description>Studio txt</description>
-                    <left>0</left>
-                    <top>50</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>Studio:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="label">
-                    <description>Studio Value</description>
-                    <left>105</left>
-                    <top>50</top>
-                    <width>350</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Studio]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scroll>true</scroll>
-                </control>
-
-                <control type="label">
-                    <description>NPlayers txt</description>
-                    <left>0</left>
-                    <top>70</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>NPLayers:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="label">
-                    <description>NPlayers Value</description>
-                    <left>105</left>
-                    <top>70</top>
-                    <width>350</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Property(nplayers)]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scroll>true</scroll>
-                </control>
-
-                <control type="label">
-                    <description>ESRB txt</description>
-                    <left>0</left>
-                    <top>90</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>ESRB:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="label">
-                    <description>ESRB Value</description>
-                    <left>105</left>
-                    <top>90</top>
-                    <width>350</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Property(esrb)]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scroll>true</scroll>
-                </control>
-
-                <control type="label">
-                    <description>Rating txt</description>
-                    <left>0</left>
-                    <top>110</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>Rating:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="label">
-                    <description>Rating Value</description>
-                    <left>105</left>
-                    <top>110</top>
-                    <width>300</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Rating]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scroll>true</scroll>
-                </control>
-
-                <control type="label">
-                    <description>Platform txt</description>
-                    <left>0</left>
-                    <top>130</top>
-                    <width>100</width>
-                    <height>25</height>
-                    <label>Platform:</label>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <textcolor>blue</textcolor>
-                </control>
-                <control type="label">
-                    <description>Platform Value</description>
-                    <left>105</left>
-                    <top>130</top>
-                    <width>300</width>
-                    <height>25</height>
-                    <label fallback="416">$INFO[ListItem.Property(platform)]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <scroll>true</scroll>
-                </control>
+            <!-- Experiment: platform flag -->
+            <control type="image">
+                <left>370</left>
+                <top>-5</top>
+                <width>70</width>
+                <height>70</height>
+                <aspectratio>keep</aspectratio>
+                <!-- Use value of the property to make the file name of the flag. -->
+                <texture>$INFO[ListItem.Property(platform),special://home/addons/plugin.program.advanced.emulator.launcher/media/p_pixel/,.png]</texture>
             </control>
 
-            <!-- Plot ------------------------------------------------------------------------- -->
+            <!-- Example in ViewsVideoLibrary.xml, search for "Media Codec Flagging Images" --->
+            <!-- <include>AudioCodecFlaggingConditions</include> defined in IncludesCodecFlagging.xml --->
             <control type="group">
-                <left>900</left>
-                <top>470</top>
-                <visible>Control.IsVisible(951)</visible>
+                <!-- <align>center</align> -->
+                <!-- <itemgap>2</itemgap> -->
+                <!-- <orientation>horizontal</orientation> -->
 
+                <!-- In Favourite bool -->
                 <control type="image">
+                    <description>In Favourite Bool</description>
                     <left>0</left>
-                    <top>0</top>
-                    <width>350</width>
-                    <height>190</height>
-                    <texture border="15">ContentPanel.png</texture>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/InFav_True.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_InFav),InFav_True)</visible>
                 </control>
-                <control type="textbox">
-                    <description>Plot</description>
-                    <left>20</left>
-                    <top>20</top>
-                    <width>310</width>
-                    <height>150</height>
-                    <font>font10</font>
-                    <align>left</align>
-                    <textcolor>white</textcolor>
-                    <label>$INFO[ListItem.Plot]</label>
-                    <autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+
+                <!-- Multidisc bool -->
+                <control type="image">
+                    <description>Multidisc Bool</description>
+                    <left>60</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Multidisc_True.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_MultiDisc),MultiDisc_True)</visible>
+                </control>
+
+                <!-- Favourite ROM status -->
+                <control type="image">
+                    <description>Favourite ROM status OK</description>
+                    <left>120</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_OK.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_OK)</visible>
+                </control>
+                <control type="image">
+                    <description>Favourite ROM status Unlinked ROM</description>
+                    <left>120</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_UnlinkedROM.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_UnlinkedROM)</visible>
+                </control>
+                <control type="image">
+                    <description>Favourite ROM status Unlinked Launcher</description>
+                    <left>120</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_UnlinkedLauncher.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_UnlinkedLauncher)</visible>
+                </control>
+                <control type="image">
+                    <description>Favourite ROM status Broken</description>
+                    <left>120</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/Fav_Broken.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_Fav_stat),Fav_Broken)</visible>
+                </control>
+
+                <!-- No-Intro status -->
+                <control type="image">
+                    <description>NoIntro Status</description>
+                    <left>180</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Have.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Have)</visible>
+                </control>
+                <control type="image">
+                    <description>NoIntro Status</description>
+                    <left>180</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Miss.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Miss)</visible>
+                </control>
+                <control type="image">
+                    <description>NoIntro Status</description>
+                    <left>180</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Added.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Added)</visible>
+                </control>
+                <control type="image">
+                    <description>NoIntro Status</description>
+                    <left>180</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/NoIntro_Unknown.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_NoIntro_stat),NoIntro_Unknown)</visible>
+                </control>
+
+                <!-- Parent/Clone status -->
+                <control type="image">
+                    <description>Parent/Clone status</description>
+                    <left>240</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/PClone_Parent.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Parent)</visible>
+                </control>
+                <control type="image">
+                    <description>Parent/Clone status</description>
+                    <left>240</left>
+                    <top>13</top>
+                    <width>80</width>
+                    <height>35</height>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture>special://home/addons/plugin.program.advanced.emulator.launcher/media/flags/PClone_Clone.png</texture>
+                    <visible>String.IsEqual(ListItem.Property(AEL_PClone_stat),PClone_Clone)</visible>
                 </control>
             </control>
+        </control>
 
-            <!-- Artwork ---------------------------------------------------------------------- -->
-            <control type="group">
-                <!--
-                <control type="image">
-                    <left>620</left>
-                    <top>40</top>
-                    <width>250</width>
-                    <height>250</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-                -->
-                <control type="image">
-                    <left>620</left>
-                    <top>40</top>
-                    <width>250</width>
-                    <height>250</height>
-                    <aspectratio>keep</aspectratio>
-                    <fadetime>200</fadetime>
-                    <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
-                    <bordertexture border="8">ThumbShadow.png</bordertexture>
-                    <bordersize>8</bordersize>
-                </control>
+        <!-- Metadata --------------------------------------------------------------------- -->
+        <control type="group">
+            <left>580</left>
+            <top>310</top>
+            <visible>Control.IsVisible(951)</visible>
 
-                <!--
-                <control type="image">
-                    <left>940</left>
-                    <top>40</top>
-                    <width>250</width>
-                    <height>250</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-                -->
-                <control type="image">
-                    <left>940</left>
-                    <top>40</top>
-                    <width>250</width>
-                    <height>250</height>
-                    <aspectratio>keep</aspectratio>
-                    <fadetime>200</fadetime>
-                    <texture background="true">$INFO[ListItem.Art(boxback)]</texture>
-                    <bordertexture border="8">ThumbShadow.png</bordertexture>
-                    <bordersize>8</bordersize>
-                </control>
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>700</width>
+                <height>150</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
 
-                <!-- Cartridge -->
-                <!--
-                <control type="image">
-                    <left>1080</left>
-                    <top>170</top>
-                    <width>160</width>
-                    <height>130</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-                -->
-                <control type="image">
-                    <left>1080</left>
-                    <top>170</top>
-                    <width>160</width>
-                    <height>130</height>
-                    <aspectratio>keep</aspectratio>
-                    <fadetime>200</fadetime>
-                    <texture background="true">$INFO[ListItem.Art(cartridge)]</texture>
-                    <bordertexture border="8">ThumbShadow.png</bordertexture>
-                    <bordersize>8</bordersize>
-                </control>
+            <!-- Infolabels -->
+            <control type="label">
+                <description>Genre txt</description>
+                <left>0</left>
+                <top>10</top>
+                <width>100</width>
+                <height>25</height>
+                <label>Genre:</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <textcolor>blue</textcolor>
+            </control>
+            <control type="label">
+                <description>Genre Value</description>
+                <left>105</left>
+                <top>10</top>
+                <width>350</width>
+                <height>25</height>
+                <label fallback="">$INFO[ListItem.Genre]</label>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <scroll>true</scroll>
+            </control>
 
-                <!-- Title -->
-                <!--
-                <control type="image">
-                    <left>620</left>
-                    <top>290</top>
-                    <width>250</width>
-                    <height>200</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-                -->
-                <control type="image">
-                    <left>620</left>
-                    <top>290</top>
-                    <width>250</width>
-                    <height>200</height>
-                    <aspectratio>keep</aspectratio>
-                    <fadetime>200</fadetime>
-                    <texture background="true">$INFO[ListItem.Art(title)]</texture>
-                    <bordertexture border="8">ThumbShadow.png</bordertexture>
-                    <bordersize>8</bordersize>
-                </control>
+            <control type="label">
+                <description>Studio txt</description>
+                <left>0</left>
+                <top>35</top>
+                <width>100</width>
+                <height>25</height>
+                <label>Studio:</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <textcolor>blue</textcolor>
+            </control>
+            <control type="label">
+                <description>Studio Value</description>
+                <left>105</left>
+                <top>35</top>
+                <width>350</width>
+                <height>25</height>
+                <label fallback="">$INFO[ListItem.Studio]</label>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <scroll>true</scroll>
+            </control>
 
-                <!-- Snap -->
-                <!--
-                <control type="image">
-                    <left>620</left>
-                    <top>490</top>
-                    <width>250</width>
-                    <height>200</height>
-                    <texture border="15">ContentPanel.png</texture>
-                </control>
-                -->
-                <control type="image">
-                    <left>620</left>
-                    <top>490</top>
-                    <width>250</width>
-                    <height>200</height>
-                    <aspectratio>keep</aspectratio>
-                    <fadetime>200</fadetime>
-                    <texture background="true">$INFO[ListItem.Art(snap)]</texture>
-                    <bordertexture border="8">ThumbShadow.png</bordertexture>
-                    <bordersize>8</bordersize>
-                </control>
+            <control type="label">
+                <description>NPlayers txt</description>
+                <left>0</left>
+                <top>60</top>
+                <width>100</width>
+                <height>25</height>
+                <label>NPLayers:</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <textcolor>blue</textcolor>
+            </control>
+            <control type="label">
+                <description>NPlayers Value</description>
+                <left>105</left>
+                <top>60</top>
+                <width>350</width>
+                <height>25</height>
+                <label fallback="">$INFO[ListItem.Property(nplayers)]</label>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <scroll>true</scroll>
+            </control>
 
+            <control type="label">
+                <description>ESRB txt</description>
+                <left>0</left>
+                <top>85</top>
+                <width>100</width>
+                <height>25</height>
+                <label>ESRB:</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <textcolor>blue</textcolor>
+            </control>
+            <control type="label">
+                <description>ESRB Value</description>
+                <left>105</left>
+                <top>85</top>
+                <width>350</width>
+                <height>25</height>
+                <label fallback="">$INFO[ListItem.Property(esrb)]</label>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <scroll>true</scroll>
+            </control>
+
+            <control type="label">
+                <description>Rating txt</description>
+                <left>0</left>
+                <top>110</top>
+                <width>100</width>
+                <height>25</height>
+                <label>Rating:</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <textcolor>blue</textcolor>
+            </control>
+            <control type="label">
+                <description>Rating Value</description>
+                <left>105</left>
+                <top>110</top>
+                <width>300</width>
+                <height>25</height>
+                <label fallback="">$INFO[ListItem.Rating]</label>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <scroll>true</scroll>
+            </control>
+
+            <!-- Plot -->
+            <control type="textbox">
+                <description>Plot</description>
+                <left>340</left>
+                <top>10</top>
+                <width>350</width>
+                <height>130</height>
+                <font>font10</font>
+                <align>left</align>
+                <textcolor>white</textcolor>
+                <label>$INFO[ListItem.Plot]</label>
+                <autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+            </control>
+        </control>
+
+        <!-- Artwork ---------------------------------------------------------------------- -->
+        <control type="group">
+            <left>600</left>
+            <top>10</top>
+            <!--
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>310</width>
+                <height>310</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
+            -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>310</width>
+                <height>310</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>200</fadetime>
+                <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+        </control>
+
+        <control type="group">
+            <left>920</left>
+            <top>10</top>
+
+            <!-- Boxback -->
+            <!--
+            <control type="image">
+                <left>0</left>
+                <top>30</top>
+                <width>250</width>
+                <height>250</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
+            -->
+            <control type="image">
+                <left>0</left>
+                <top>30</top>
+                <width>250</width>
+                <height>250</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>200</fadetime>
+                <texture background="true">$INFO[ListItem.Art(boxback)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+
+            <!-- Clearlogo -->
+            <!--
+            <control type="image">
+                <left>170</left>
+                <top>25</top>
+                <width>180</width>
+                <height>60</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
+            -->
+            <control type="image">
+                <left>170</left>
+                <top>25</top>
+                <width>180</width>
+                <height>60</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>200</fadetime>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+
+            <!-- Cartridge -->
+            <!--
+            <control type="image">
+                <left>170</left>
+                <top>175</top>
+                <width>160</width>
+                <height>130</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
+            -->
+            <control type="image">
+                <left>170</left>
+                <top>175</top>
+                <width>160</width>
+                <height>130</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>200</fadetime>
+                <texture background="true">$INFO[ListItem.Art(cartridge)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+        </control>
+
+        <!-- Title -->
+        <control type="group">
+            <left>600</left>
+            <top>450</top>
+            <!--
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>300</width>
+                <height>200</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
+            -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>300</width>
+                <height>200</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>200</fadetime>
+                <texture background="true">$INFO[ListItem.Art(title)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+        </control>
+
+        <!-- Snap -->
+        <control type="group">
+            <left>950</left>
+            <top>450</top>
+            <!--
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>300</width>
+                <height>200</height>
+                <texture border="15">ContentPanel.png</texture>
+            </control>
+            -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>300</width>
+                <height>200</height>
+                <aspectratio>keep</aspectratio>
+                <fadetime>200</fadetime>
+                <texture background="true">$INFO[ListItem.Art(snap)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
             </control>
         </control>
     </include>
