@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fonts>
 	<fontset id="Default" idloc="31390">
+		<!-- Monospaced font -->
+		<font>
+			<name>font13_mono</name>
+			<filename>RobotoMono-Regular.ttf</filename>
+			<size>20</size>
+		</font>
+        
 		<!-- Normal Fonts -->
 		<font>
 			<name>font10</name>
