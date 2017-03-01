@@ -7,21 +7,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
     <include name="Addon_AEL_List">
+        <!-- Look in IncludesBackgroundBuilding.xml to get size of content panels -->
         <control type="group">
-            <left>20</left>
-            <top>40</top>
+            <left>50</left>
+            <top>60</top>
             <visible>Control.IsVisible(951)</visible>
             <include>VisibleFadeEffect</include>
 
-            <!-- ListItem. ID of this control seems to be ID of the view ---------------------- -->
-            <!-- Panel background -->
+            <!-- List Panel background -->
             <control type="image">
                 <left>0</left>
                 <top>0</top>
-                <width>550</width>
-                <height>670</height>
+                <width>540</width>
+                <height>600</height>
                 <texture border="15">ContentPanel.png</texture>
             </control>
+
+            <!-- ListItem. ID of this control seems to be ID of the view ---------------------- -->
             <control type="list" id="951">
                 <left>10</left>
                 <top>10</top>
@@ -150,8 +152,9 @@
 
         <!-- Flags ------------------------------------------------------------------------ -->
         <control type="group">
-            <left>580</left>
-            <top>650</top>
+            <left>600</left>
+            <top>655</top>
+            <visible>Control.IsVisible(951)</visible>
 
             <control type="image">
                 <left>0</left>
@@ -159,17 +162,6 @@
                 <width>340</width>
                 <height>60</height>
                 <texture border="10">ContentPanel.png</texture>
-            </control>
-
-            <!-- Experiment: platform flag -->
-            <control type="image">
-                <left>370</left>
-                <top>-5</top>
-                <width>70</width>
-                <height>70</height>
-                <aspectratio>keep</aspectratio>
-                <!-- Use value of the property to make the file name of the flag. -->
-                <texture>$INFO[ListItem.Property(platform),special://home/addons/plugin.program.advanced.emulator.launcher/media/p_pixel/,.png]</texture>
             </control>
 
             <!-- Example in ViewsVideoLibrary.xml, search for "Media Codec Flagging Images" --->
@@ -311,304 +303,262 @@
             </control>
         </control>
 
-        <!-- Metadata --------------------------------------------------------------------- -->
-        <control type="group">
-            <left>580</left>
-            <top>310</top>
-            <visible>Control.IsVisible(951)</visible>
-
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>700</width>
-                <height>150</height>
-                <texture border="15">ContentPanel.png</texture>
-            </control>
-
-            <!-- Infolabels -->
-            <control type="label">
-                <description>Genre txt</description>
-                <left>0</left>
-                <top>10</top>
-                <width>100</width>
-                <height>25</height>
-                <label>Genre:</label>
-                <align>right</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <textcolor>blue</textcolor>
-            </control>
-            <control type="label">
-                <description>Genre Value</description>
-                <left>105</left>
-                <top>10</top>
-                <width>350</width>
-                <height>25</height>
-                <label fallback="">$INFO[ListItem.Genre]</label>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <scroll>true</scroll>
-            </control>
-
-            <control type="label">
-                <description>Studio txt</description>
-                <left>0</left>
-                <top>35</top>
-                <width>100</width>
-                <height>25</height>
-                <label>Studio:</label>
-                <align>right</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <textcolor>blue</textcolor>
-            </control>
-            <control type="label">
-                <description>Studio Value</description>
-                <left>105</left>
-                <top>35</top>
-                <width>350</width>
-                <height>25</height>
-                <label fallback="">$INFO[ListItem.Studio]</label>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <scroll>true</scroll>
-            </control>
-
-            <control type="label">
-                <description>NPlayers txt</description>
-                <left>0</left>
-                <top>60</top>
-                <width>100</width>
-                <height>25</height>
-                <label>NPLayers:</label>
-                <align>right</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <textcolor>blue</textcolor>
-            </control>
-            <control type="label">
-                <description>NPlayers Value</description>
-                <left>105</left>
-                <top>60</top>
-                <width>350</width>
-                <height>25</height>
-                <label fallback="">$INFO[ListItem.Property(nplayers)]</label>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <scroll>true</scroll>
-            </control>
-
-            <control type="label">
-                <description>ESRB txt</description>
-                <left>0</left>
-                <top>85</top>
-                <width>100</width>
-                <height>25</height>
-                <label>ESRB:</label>
-                <align>right</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <textcolor>blue</textcolor>
-            </control>
-            <control type="label">
-                <description>ESRB Value</description>
-                <left>105</left>
-                <top>85</top>
-                <width>350</width>
-                <height>25</height>
-                <label fallback="">$INFO[ListItem.Property(esrb)]</label>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <scroll>true</scroll>
-            </control>
-
-            <control type="label">
-                <description>Rating txt</description>
-                <left>0</left>
-                <top>110</top>
-                <width>100</width>
-                <height>25</height>
-                <label>Rating:</label>
-                <align>right</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <textcolor>blue</textcolor>
-            </control>
-            <control type="label">
-                <description>Rating Value</description>
-                <left>105</left>
-                <top>110</top>
-                <width>300</width>
-                <height>25</height>
-                <label fallback="">$INFO[ListItem.Rating]</label>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <scroll>true</scroll>
-            </control>
-
-            <!-- Plot -->
-            <control type="textbox">
-                <description>Plot</description>
-                <left>340</left>
-                <top>10</top>
-                <width>350</width>
-                <height>130</height>
-                <font>font10</font>
-                <align>left</align>
-                <textcolor>white</textcolor>
-                <label>$INFO[ListItem.Plot]</label>
-                <autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
-            </control>
-        </control>
-
-        <!-- Artwork ---------------------------------------------------------------------- -->
+        <!-- Metadata/Assets --------------------------------------------------------------------- -->
         <control type="group">
             <left>600</left>
-            <top>10</top>
-            <!--
+            <top>60</top>
+            <visible>Control.IsVisible(951)</visible>
+
+            <!-- Panel background -->
             <control type="image">
                 <left>0</left>
                 <top>0</top>
-                <width>310</width>
-                <height>310</height>
+                <width>630</width>
+                <height>600</height>
                 <texture border="15">ContentPanel.png</texture>
             </control>
-            -->
-            <control type="image">
+
+            <!-- Metadata group -->
+            <control type="group">
                 <left>0</left>
-                <top>0</top>
-                <width>310</width>
-                <height>310</height>
-                <aspectratio>keep</aspectratio>
+                <top>265</top>
+
+                <!-- Infolabels -->
+                <control type="label">
+                    <description>Genre txt</description>
+                    <left>0</left>
+                    <top>10</top>
+                    <width>100</width>
+                    <height>25</height>
+                    <label>Genre:</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>blue</textcolor>
+                </control>
+                <control type="label">
+                    <description>Genre Value</description>
+                    <left>105</left>
+                    <top>10</top>
+                    <width>350</width>
+                    <height>25</height>
+                    <label fallback="">$INFO[ListItem.Genre]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <scroll>true</scroll>
+                </control>
+
+                <control type="label">
+                    <description>Studio txt</description>
+                    <left>0</left>
+                    <top>35</top>
+                    <width>100</width>
+                    <height>25</height>
+                    <label>Studio:</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>blue</textcolor>
+                </control>
+                <control type="label">
+                    <description>Studio Value</description>
+                    <left>105</left>
+                    <top>35</top>
+                    <width>350</width>
+                    <height>25</height>
+                    <label fallback="">$INFO[ListItem.Studio]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <scroll>true</scroll>
+                </control>
+
+                <control type="label">
+                    <description>NPlayers txt</description>
+                    <left>0</left>
+                    <top>60</top>
+                    <width>100</width>
+                    <height>25</height>
+                    <label>NPLayers:</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>blue</textcolor>
+                </control>
+                <control type="label">
+                    <description>NPlayers Value</description>
+                    <left>105</left>
+                    <top>60</top>
+                    <width>350</width>
+                    <height>25</height>
+                    <label fallback="">$INFO[ListItem.Property(nplayers)]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <scroll>true</scroll>
+                </control>
+
+                <control type="label">
+                    <description>ESRB txt</description>
+                    <left>0</left>
+                    <top>85</top>
+                    <width>100</width>
+                    <height>25</height>
+                    <label>ESRB:</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>blue</textcolor>
+                </control>
+                <control type="label">
+                    <description>ESRB Value</description>
+                    <left>105</left>
+                    <top>85</top>
+                    <width>350</width>
+                    <height>25</height>
+                    <label fallback="">$INFO[ListItem.Property(esrb)]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <scroll>true</scroll>
+                </control>
+
+                <control type="label">
+                    <description>Rating txt</description>
+                    <left>0</left>
+                    <top>110</top>
+                    <width>100</width>
+                    <height>25</height>
+                    <label>Rating:</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>blue</textcolor>
+                </control>
+                <control type="label">
+                    <description>Rating Value</description>
+                    <left>105</left>
+                    <top>110</top>
+                    <width>300</width>
+                    <height>25</height>
+                    <label fallback="">$INFO[ListItem.Rating]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <scroll>true</scroll>
+                </control>
+
+                <!-- Plot -->
+                <control type="textbox">
+                    <description>Plot</description>
+                    <left>340</left>
+                    <top>10</top>
+                    <width>275</width>
+                    <height>115</height>
+                    <font>font10</font>
+                    <align>left</align>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[ListItem.Plot]</label>
+                    <autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+                </control>
+            </control>
+
+            <!-- Artwork ---------------------------------------------------------------------- -->
+            <!-- Boxfront -->
+            <control type="image">
+                <left>35</left>
+                <top>10</top>
+                <width>270</width>
+                <height>270</height>
                 <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
             </control>
-        </control>
-
-        <control type="group">
-            <left>920</left>
-            <top>10</top>
 
             <!-- Boxback -->
-            <!--
             <control type="image">
-                <left>0</left>
-                <top>30</top>
-                <width>250</width>
-                <height>250</height>
-                <texture border="15">ContentPanel.png</texture>
-            </control>
-            -->
-            <control type="image">
-                <left>0</left>
-                <top>30</top>
-                <width>250</width>
-                <height>250</height>
-                <aspectratio>keep</aspectratio>
+                <left>330</left>
+                <top>60</top>
+                <width>180</width>
+                <height>180</height>
                 <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(boxback)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
             </control>
 
             <!-- Clearlogo -->
-            <!--
             <control type="image">
-                <left>170</left>
-                <top>25</top>
-                <width>180</width>
-                <height>60</height>
-                <texture border="15">ContentPanel.png</texture>
-            </control>
-            -->
-            <control type="image">
-                <left>170</left>
-                <top>25</top>
-                <width>180</width>
-                <height>60</height>
-                <aspectratio>keep</aspectratio>
+                <left>470</left>
+                <top>10</top>
+                <width>125</width>
+                <height>125</height>
                 <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultGameAddons.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                <bordertexture border="8">ThumbShadow.png</bordertexture>
-                <bordersize>8</bordersize>
+                <!-- <bordertexture border="8">ThumbShadow.png</bordertexture> -->
+                <!-- <bordersize>8</bordersize> -->
             </control>
 
             <!-- Cartridge -->
-            <!--
             <control type="image">
-                <left>170</left>
-                <top>175</top>
-                <width>160</width>
-                <height>130</height>
-                <texture border="15">ContentPanel.png</texture>
-            </control>
-            -->
-            <control type="image">
-                <left>170</left>
-                <top>175</top>
-                <width>160</width>
-                <height>130</height>
-                <aspectratio>keep</aspectratio>
+                <left>470</left>
+                <top>150</top>
+                <width>125</width>
+                <height>125</height>
                 <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(cartridge)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
             </control>
-        </control>
 
-        <!-- Title -->
-        <control type="group">
-            <left>600</left>
-            <top>450</top>
-            <!--
+            <!-- Platform icon -->
+            <!-- Use value of the property to make the file name of the flag. -->
             <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>300</width>
-                <height>200</height>
-                <texture border="15">ContentPanel.png</texture>
-            </control>
-            -->
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>300</width>
-                <height>200</height>
-                <aspectratio>keep</aspectratio>
+                <left>20</left>
+                <top>450</top>
+                <width>100</width>
+                <height>100</height>
                 <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
+                <texture>$INFO[ListItem.Property(platform),special://home/addons/plugin.program.advanced.emulator.launcher/media/p_pixel/,.png]</texture>
+                <!-- <bordertexture border="8">ThumbShadow.png</bordertexture> -->
+                <!-- <bordersize>8</bordersize> -->
+            </control>
+
+            <!-- Title -->
+            <control type="image">
+                <left>120</left>
+                <top>400</top>
+                <width>250</width>
+                <height>190</height>
+                <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(title)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
             </control>
-        </control>
 
-        <!-- Snap -->
-        <control type="group">
-            <left>950</left>
-            <top>450</top>
-            <!--
+            <!-- Snap -->
             <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>300</width>
-                <height>200</height>
-                <texture border="15">ContentPanel.png</texture>
-            </control>
-            -->
-            <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>300</width>
-                <height>200</height>
-                <aspectratio>keep</aspectratio>
+                <left>370</left>
+                <top>400</top>
+                <width>250</width>
+                <height>190</height>
                 <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(snap)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
