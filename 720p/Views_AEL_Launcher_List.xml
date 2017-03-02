@@ -62,10 +62,24 @@
 						<height>41</height>
 						<texture border="0,2,0,2">MenuItemNF.png</texture>
 					</control>
+                    <!-- Year label -->
+                    <control type="label">
+                        <left>10</left>
+                        <top>0</top>
+                        <width>100</width>
+                        <height>40</height>
+                        <font>font12</font>
+                        <textcolor>grey2</textcolor>
+                        <selectedcolor>selected</selectedcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Year]</label>
+                    </control>
+                    <!-- Title label -->
 					<control type="label">
-						<left>10</left>
+						<left>60</left>
 						<top>0</top>
-						<width>580</width>
+						<width>600</width>
 						<height>40</height>
 						<font>font13</font>
 						<textcolor>grey2</textcolor>
@@ -112,10 +126,24 @@
 						<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
 						<visible>Control.HasFocus(952) + !String.IsEmpty(ListItem.Label2)</visible>
 					</control>
+                    <!-- Year label -->
+                    <control type="label">
+                        <left>10</left>
+                        <top>0</top>
+                        <width>100</width>
+                        <height>40</height>
+                        <font>font12</font>
+                        <textcolor>grey2</textcolor>
+                        <selectedcolor>selected</selectedcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Year]</label>
+                    </control>
+                    <!-- Title label -->
 					<control type="label">
-						<left>10</left>
+						<left>60</left>
 						<top>0</top>
-						<width>580</width>
+						<width>600</width>
 						<height>40</height>
 						<font>font13</font>
 						<textcolor>white</textcolor>
@@ -275,8 +303,6 @@
                 <fadetime>IconCrossfadeTime</fadetime>
                 <!-- <texture background="true">DefaultFolderBack.png</texture>  -->
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                <bordertexture border="8">ThumbShadow.png</bordertexture>
-                <bordersize>8</bordersize>
             </control>
 
             <control type="image">
