@@ -50,10 +50,10 @@
 					<description>textarea</description>
 					<left>120</left>
 					<top>92</top>
-					<width>1190</width>
+					<width>1100</width>
 					<height>598</height>
 					<label>-</label>
-					<font>font13_mono</font>
+					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
@@ -64,10 +64,10 @@
 					<description>textarea</description>
 					<left>120</left>
 					<top>92</top>
-					<width>1190</width>
+					<width>1100</width>
 					<height>598</height>
 					<label>-</label>
-					<font>font13</font>
+					<font>font13_mono</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
