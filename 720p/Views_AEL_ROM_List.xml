@@ -6,7 +6,7 @@
 -->
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-    <include name="Addon_AEL_List">
+    <include name="Addon_AEL_ROM_List">
         <!-- Look in IncludesBackgroundBuilding.xml to get size of content panels -->
         <control type="group">
             <left>50</left>
@@ -36,7 +36,7 @@
                 <ondown>951</ondown>
 
                 <!-- label defines the view name on Kodi view selector -->
-                <viewtype label="AEL List">info</viewtype>
+                <viewtype label="ROM List">info</viewtype>
                 <pagecontrol>60</pagecontrol>
                 <scrolltime>200</scrolltime>
 

@@ -26,7 +26,7 @@
 			<!-- Defined in Views_AEL_Matrix.xml / view id = 950 -->
 			<include>Addon_AEL_Matrix</include>
 			<!-- Defined in Views_AEL_List.xml / view id = 951 -->
-			<include>Addon_AEL_List</include>
+			<include>Addon_AEL_ROM_List</include>
 			<!-- Defined in Views_AML_MAME_List.xml / view id = 952 -->
             <!-- <include>Addon_AML_MAME_List</include> -->
 			<!-- Defined in Views_AML_SL_List.xml   / view id = 953 -->
