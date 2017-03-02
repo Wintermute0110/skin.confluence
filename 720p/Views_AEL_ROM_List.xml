@@ -165,6 +165,7 @@
             </control>
             -->
 
+            <!-- TODO Put the flags into an include. Create includes for Horizontal and Vertical flags -->
             <!-- Example in ViewsVideoLibrary.xml, search for "Media Codec Flagging Images" --->
             <!-- <include>AudioCodecFlaggingConditions</include> defined in IncludesCodecFlagging.xml --->
             <control type="group">
@@ -467,6 +468,7 @@
 
             <!-- Artwork ---------------------------------------------------------------------- -->
             <!-- Boxfront -->
+            <!-- If platform is MAME render flyer instead -->
             <control type="image">
                 <left>35</left>
                 <top>10</top>
@@ -478,9 +480,23 @@
                 <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
+                <visible>!String.IsEqual(ListItem.Property(platform),MAME)</visible>
+            </control>
+            <control type="image">
+                <left>35</left>
+                <top>10</top>
+                <width>270</width>
+                <height>270</height>
+                <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultAudioDSP.png</texture> -->
+                <texture background="true">$INFO[ListItem.Art(flyer)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+                <visible>String.IsEqual(ListItem.Property(platform),MAME)</visible>
             </control>
 
-            <!-- Boxback -->
+            <!-- Boxback/Control -->
             <control type="image">
                 <left>330</left>
                 <top>60</top>
@@ -492,9 +508,38 @@
                 <texture background="true">$INFO[ListItem.Art(boxback)]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
+                <visible>!String.IsEqual(ListItem.Property(platform),MAME)</visible>
+            </control>
+            <!-- If platform is MAME render Boxfront (cabinet) and Marquee on top -->
+            <control type="image">
+                <left>330</left>
+                <top>80</top>
+                <width>180</width>
+                <height>200</height>
+                <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">DefaultAudioDSP.png</texture> -->
+                <texture background="true">$INFO[ListItem.Art(boxfront)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+                <visible>String.IsEqual(ListItem.Property(platform),MAME)</visible>
+            </control>
+            <control type="image">
+                <left>330</left>
+                <top>10</top>
+                <width>180</width>
+                <height>70</height>
+                <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">HomeSubFO.png</texture> -->
+                <texture background="true">$INFO[ListItem.Art(banner)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+                <visible>String.IsEqual(ListItem.Property(platform),MAME)</visible>
             </control>
 
             <!-- Clearlogo -->
+            <!-- Clearlogo position changes for MAME -->
             <control type="image">
                 <left>470</left>
                 <top>10</top>
@@ -504,11 +549,21 @@
                 <aspectratio>keep</aspectratio>
                 <!-- <texture background="true">DefaultGameAddons.png</texture> -->
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                <!-- <bordertexture border="8">ThumbShadow.png</bordertexture> -->
-                <!-- <bordersize>8</bordersize> -->
+                <visible>!String.IsEqual(ListItem.Property(platform),MAME)</visible>
+            </control>
+            <control type="image">
+                <left>470</left>
+                <top>80</top>
+                <width>125</width>
+                <height>70</height>
+                <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+                <!-- <texture background="true">HomeSubFO.png</texture> -->
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <visible>String.IsEqual(ListItem.Property(platform),MAME)</visible>
             </control>
 
-            <!-- Cartridge -->
+            <!-- Cartridge/PCB -->
             <control type="image">
                 <left>470</left>
                 <top>150</top>
@@ -533,8 +588,6 @@
                 <aspectratio>keep</aspectratio>
                 <!-- <texture background="true">DefaultFolderBack.png</texture> -->
                 <texture>$INFO[ListItem.Property(platform),special://home/addons/plugin.program.advanced.emulator.launcher/media/p_pixel/,.png]</texture>
-                <!-- <bordertexture border="8">ThumbShadow.png</bordertexture> -->
-                <!-- <bordersize>8</bordersize> -->
             </control>
 
             <!-- Title -->
