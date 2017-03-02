@@ -9,7 +9,7 @@
 			<control type="image">
 				<left>100</left>
 				<top>0</top>
-				<width>1180</width>
+				<width>1200</width>
 				<height>720</height>
 				<texture border="15,0,0,0" flipx="true">MediaBladeSub.png</texture>
 			</control>
@@ -37,13 +37,28 @@
 					<description>header label</description>
 					<left>100</left>
 					<top>40</top>
-					<width>1030</width>
+					<width>1200</width>
 					<height>30</height>
 					<font>font13_title</font>
 					<align>center</align>
 					<aligny>center</aligny>
 					<textcolor>selected</textcolor>
 					<shadowcolor>black</shadowcolor>
+				</control>
+                <!-- Only used monospaced font when requested by addons -->                
+				<control type="textbox" id="5">
+					<description>textarea</description>
+					<left>120</left>
+					<top>92</top>
+					<width>1190</width>
+					<height>598</height>
+					<label>-</label>
+					<font>font13_mono</font>
+					<align>justify</align>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<pagecontrol>61</pagecontrol>
+                    <visible>!String.IsEqual(Window.Property(FontWidth),monospaced)</visible>
 				</control>
 				<control type="textbox" id="5">
 					<description>textarea</description>
@@ -52,12 +67,12 @@
 					<width>1190</width>
 					<height>598</height>
 					<label>-</label>
-                    <!-- TODO only used monospaced font when requested by addons -->
-					<font>font13_mono</font>
+					<font>font13</font>
 					<align>justify</align>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<pagecontrol>61</pagecontrol>
+                    <visible>String.IsEqual(Window.Property(FontWidth),monospaced)</visible>
 				</control>
 				<control type="scrollbar" id="61">
 					<left>1220</left>
