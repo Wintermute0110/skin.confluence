@@ -18,6 +18,7 @@
     <!-- AEL/AML views -->
 	<include file="Views_AEL_Matrix.xml" />
 	<include file="Views_AEL_ROM_List.xml" />
+	<include file="Views_AEL_Launcher_List.xml" />
 
 	<!-- CONSTANTS -->
 	<constant name="FanartCrossfadeTime">500</constant>
