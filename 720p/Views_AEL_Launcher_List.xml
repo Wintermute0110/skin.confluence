@@ -1,6 +1,6 @@
 <!--
   Launher List / ID 952
-  Assets: Icon, Fanart, Banner, Flyer, Clearlogo.
+  Assets: Icon, Fanart, and Clearlogo.
   Metadata: Name, Year, Genre, Studio, Rating, Plot.
 
   Template used: Confluence Krypton ViewsFileMode.xml, view CommonRootView (50)
@@ -172,7 +172,7 @@
             <!-- Metadata group -->
             <control type="group">
                 <left>0</left>
-                <top>265</top>
+                <top>115</top>
 
                 <!-- Infolabels -->
                 <control type="label">
@@ -189,7 +189,7 @@
                 </control>
                 <control type="label">
                     <description>Genre Value</description>
-                    <left>82</left>
+                    <left>85</left>
                     <top>10</top>
                     <width>250</width>
                     <height>25</height>
@@ -203,7 +203,7 @@
                 <control type="label">
                     <description>Studio txt</description>
                     <left>0</left>
-                    <top>35</top>
+                    <top>30</top>
                     <width>80</width>
                     <height>25</height>
                     <label>Studio:</label>
@@ -214,8 +214,8 @@
                 </control>
                 <control type="label">
                     <description>Studio Value</description>
-                    <left>82</left>
-                    <top>35</top>
+                    <left>85</left>
+                    <top>30</top>
                     <width>240</width>
                     <height>25</height>
                     <label fallback="">$INFO[ListItem.Studio]</label>
@@ -228,7 +228,7 @@
                 <control type="label">
                     <description>Rating txt</description>
                     <left>0</left>
-                    <top>55</top>
+                    <top>50</top>
                     <width>80</width>
                     <height>25</height>
                     <label>Rating:</label>
@@ -239,8 +239,8 @@
                 </control>
                 <control type="label">
                     <description>Rating Value</description>
-                    <left>82</left>
-                    <top>55</top>
+                    <left>85</left>
+                    <top>50</top>
                     <width>250</width>
                     <height>25</height>
                     <label fallback="">$INFO[ListItem.Rating]</label>
@@ -253,10 +253,10 @@
                 <!-- Plot -->
                 <control type="textbox">
                     <description>Plot</description>
-                    <left>330</left>
-                    <top>10</top>
-                    <width>285</width>
-                    <height>120</height>
+                    <left>30</left>
+                    <top>80</top>
+                    <width>380</width>
+                    <height>150</height>
                     <font>font10</font>
                     <align>left</align>
                     <textcolor>white</textcolor>
@@ -267,16 +267,30 @@
 
             <!-- Artwork ---------------------------------------------------------------------- -->
             <control type="image">
-                <left>50</left>
-                <top>0</top>
-                <width>360</width>
-                <height>540</height>
+                <left>30</left>
+                <top>10</top>
+                <width>380</width>
+                <height>120</height>
+                <aspectratio>keep</aspectratio> -->
+                <fadetime>IconCrossfadeTime</fadetime>
+                <!-- <texture background="true">DefaultFolderBack.png</texture>  -->
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <bordertexture border="8">ThumbShadow.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+
+            <control type="image">
+                <left>100</left>
+                <top>350</top>
+                <width>240</width>
+                <height>240</height>
                 <aspectratio aligny="bottom">keep</aspectratio>
                 <fadetime>IconCrossfadeTime</fadetime>
-                <texture background="true">$VAR[PosterThumb]</texture>
+                <!-- <texture background="true">DefaultFolderBack.png</texture> -->
+                <texture background="true">$INFO[ListItem.Icon]</texture>
                 <bordertexture border="8">ThumbShadow.png</bordertexture>
                 <bordersize>8</bordersize>
             </control>
         </control>
-	</include>
+    </include>
 </includes>
