@@ -298,7 +298,7 @@
                 <left>30</left>
                 <top>10</top>
                 <width>380</width>
-                <height>120</height>
+                <height>110</height>
                 <aspectratio>keep</aspectratio> -->
                 <fadetime>IconCrossfadeTime</fadetime>
                 <!-- <texture background="true">DefaultFolderBack.png</texture>  -->
