@@ -194,6 +194,7 @@
             <include>VisibleFadeEffect</include>
             <visible>Control.IsVisible(952)</visible>
             
+            <!-- background panel -->
             <control type="image">
                 <left>0</left>
                 <top>0</top>
@@ -205,7 +206,7 @@
             <!-- Metadata group -->
             <control type="group">
                 <left>0</left>
-                <top>115</top>
+                <top>120</top>
 
                 <!-- Infolabels -->
                 <control type="label">
@@ -287,7 +288,7 @@
                 <control type="textbox">
                     <description>Plot</description>
                     <left>30</left>
-                    <top>80</top>
+                    <top>75</top>
                     <width>380</width>
                     <height>150</height>
                     <font>font10</font>
@@ -301,7 +302,7 @@
             <!-- Artwork ---------------------------------------------------------------------- -->
             <control type="image">
                 <left>30</left>
-                <top>10</top>
+                <top>18</top>
                 <width>380</width>
                 <height>110</height>
                 <aspectratio>keep</aspectratio> -->
