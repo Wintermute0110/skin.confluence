@@ -26,7 +26,7 @@
             <!-- ListItem. ID of this control seems to be ID of the view ---------------------- -->
             <control type="list" id="951">
                 <left>10</left>
-                <top>20</top>
+                <top>18</top>
                 <width>540</width>
                 <height>570</height>
 
